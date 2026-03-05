@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Tupper - FitMeal Builder</title>
+</head>
+<body>
+
+<!--Bienvenida al usuario-->
+
+<h1>Bienvenido <?php echo $nombreUsuario; ?>, ya puedes crear tu tupper</h1>
+
+<!--Mostrar mensaje si se ha creado el tupper-->
+
+<?php if (isset($mensaje)){ ?>
+    <p><?php echo $mensaje; ?></p>
+    
+<?php } ?>    
+
+<!--Formulario para crear un tupper-->
+
+<form action="crear_tupper.php" method="POST">
+    <button type="submit" name="crear_tupper">Crear tupper</button>
+</form>
+
+<!--Volver al panel-->
+
+<a href="panel.php">Volver al panel</a>
+
+</body>
+</html>
