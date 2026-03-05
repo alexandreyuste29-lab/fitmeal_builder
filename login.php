@@ -11,8 +11,26 @@ if(isset($_POST["login"])){
     
 //Buscar al usuario a través del email
 
-    $sql = "SELET * FROM usuarios WHERE email = '$email'";
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     $resultado = mysqli_query($conexion, $sql);
+
+    if(mysqli_num_rows($resultado)==1){
+
+        $usuario = mysqli_fetch_assoc($resultado);
+
+//Verificar contraseña
+ 
+    if(password_verify($password, $usuario ['password_hash'])){
+
+        $_SESSION['id_usuario'] = $usuario['id_usuario'];
+        $_SESSION['nombre']= $usuario['nombre'];
+
+        header("Location: panel.php");
+        exit();
+
+    }else{echo "Contraseña incorrecta";}
+
+    }else{echo "Usuario no encontrado";}
 }
 
 ?>
