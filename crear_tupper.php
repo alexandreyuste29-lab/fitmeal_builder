@@ -13,6 +13,10 @@ if(!isset($_SESSION['id_usuario'])){
 
 $nombreUsuario = $_SESSION['nombre'];
 
+//Inicializamos mendaje vacío
+
+$mensaje ="";
+
 //Archivo de conexión
 
 include("includes/conexion.php");
@@ -21,7 +25,7 @@ include("includes/conexion.php");
 
 if(isset($_POST['crear_tupper'])){
     $idUsuario = $_SESSION['id_usuario'];
-    $nombreTupper = NULL; //Ya que los tuppers no tienen nombre específico
+    $nombreTupper = $_POST['nombre_tupper']; //Para que el usuario pueda poner un nombre a su tupper
 
 //Insertar tuppers en la base de datos
 $sql = "INSERT INTO tuppers (id_usuario, nombre, fecha_creacion) 

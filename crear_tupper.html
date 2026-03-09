@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Tupper - FitMeal Builder</title>
+
+<!--Para que panel utilice el mismo estilo que login-->
+
+    <link rel="stylesheet" href="css/login.css">
+
 </head>
 <body>
+
+    <div class="contenedor";>
 
 <!--Bienvenida al usuario-->
 
 <h1>Bienvenido <?php echo $nombreUsuario; ?>, ya puedes crear tu tupper</h1>
 
-<!--Mostrar mensaje si se ha creado el tupper-->
-
-<?php if (isset($mensaje)){ ?>
-    <p><?php echo $mensaje; ?></p>
-    
-<?php } ?>    
+<!--Mensaje de éxito al crear el tuppero de error-->
+ 
+<p><?php echo $--Mensaje, ?><p>
 
 <!--Formulario para crear un tupper-->
 
 <form action="crear_tupper.php" method="POST">
+    <label>Nombre del tupper</label>
+    <input type="submit" name="nombre_tupper" required>
     <button type="submit" name="crear_tupper">Crear tupper</button>
 </form>
 
