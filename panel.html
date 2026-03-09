@@ -5,16 +5,26 @@
     <meta charset="UTF-8">
     <title>Panel de Usuario - FitMeal Builder</title>
 
+<!--Para que penel utilice el mismo estilo que login-->
+
+    <link rel="stylesheet" href="css/login.css">
+
 </head>
 <body>
 
+    <div class="contenedor">
+
 <!--Bienvenida personalizada-->
+
 <h1>Bienvenido <?php echo $nombreUsuario; ?></h1>
+<p>¿Qué te apetece hoy?</p>
 
 <!--Crear tuppers y cerrar sesión-->
+
 <ul>
     <li><a href="crear_tupper.php">Crear nuevo tupper</a></li>
     <li><a href="logout.php">Cerrar sesión</a></li>
 </ul>
+</div>
 </body>
 </html>

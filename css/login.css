@@ -26,7 +26,7 @@ body{
     color: #bb4d33;
 }
 /*Etiquetas*/
-.contenedor.label{
+.contenedor label{
     display: block;
     text-align: left;
     margin-bottom: 5px;
