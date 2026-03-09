@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <div class="contenedor";>
+    <div class="contenedor">
 
 <!--Bienvenida al usuario-->
 
@@ -19,13 +19,13 @@
 
 <!--Mensaje de éxito al crear el tuppero de error-->
  
-<p><?php echo $--Mensaje, ?><p>
+<p><?php echo $mensaje; ?></p>
 
 <!--Formulario para crear un tupper-->
 
 <form action="crear_tupper.php" method="POST">
     <label>Nombre del tupper</label>
-    <input type="submit" name="nombre_tupper" required>
+    <input type="text" name="nombre_tupper" required>
     <button type="submit" name="crear_tupper">Crear tupper</button>
 </form>
 
