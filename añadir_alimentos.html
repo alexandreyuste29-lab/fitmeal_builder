@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Fitmeal Builder</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Hola <?php echo $nombreUsuario; ?>, puedes añadir alimentos al tupper</h1>
+
+<!--Mensaje de éxito o error al crear el tupper-->
+
+<?php if(isset($mensaje)) echo "<p>$mensaje</p>"; ?>
+
+<form action = "añadir_alimentos.php?id_tupper=<?php echo $idTupper; ?>" method="POST">
+    <label>Selecciona los alimentos:</label>
+    <ul>
+        <?php while($alimento = $resultAlimentos->fetch_assoc()): ?>
+        <li>
+            <input type="checkbox" name="alimentos[]" value="<?php echo $alimento['id_alimento']; ?>">
+            <?php echo $alimento['nombre']; ?>
+        </li>
+        <?php endwhile; ?>
+    </ul>
+
+    <button type="submit" name="añadir_alimentos">Añadir alimentos</button>
+</form>
+<br>
+<a href="mis_tuppers.php">Volver a mis tuppers</a>
+    </div>
+</body>
+</html>
