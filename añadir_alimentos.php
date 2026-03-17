@@ -50,13 +50,13 @@ if($resultAlimentos->num_rows > 0){
         //Que se muestre si cambia la categoría
         if($categoriaActual != $alimento['categoria']){
             $categoriaActual = $alimento['categoria'];
-            $listaAlimentos .= "<h3>$categoriaActual"</h3>;
+            $listaAlimentos .= "<h3>$categoriaActual</h3>";
         }
 
         $id = $alimento['id_alimento'];
         $nombre = $alimento ['nombre'];
-        $listaAlimentos .= "<li><input type='checkbox' name='alimentos' value='$id'>$nombre
-        </li>"
+        $listaAlimentos .= "<li><input type='checkbox' name='alimentos[]' value='$id'>$nombre
+        </li>";
     }
 }
 
