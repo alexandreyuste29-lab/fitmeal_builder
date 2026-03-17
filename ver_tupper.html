@@ -13,7 +13,18 @@
 
         <!--Lista de alimentos-->
 
-        <?php echo $listaAlimentos; ?>
+        <?php if (count($listaAlimentos)): ?>
+        <ul>
+            <?php foreach ($listaAlimentos as $alimento): ?>
+            <li><?php echo $alimento['nombre']; ?> - <?php echo $alimento['calorias']; ?>kcal</li>
+            <?php endforeach; ?>
+        </ul>
+
+        <p><strong>Calorías totales del tupper: <?php echo $totalCalorias; ?></strong></p>
+
+        php else: ?>
+        <p>Este tupper no tiene alimentos todavía.</p>
+        <?php endif; ?>
 
         <br>
 

@@ -39,8 +39,26 @@ if(isset($_POST['añadir_alimentos'])){
 
 //Obtenemos la lista de alimentos de la base de datos
 
-$sqlAlimentos = "SELECT * FROM alimentos ORDER BY nombre ASC";
+$sqlAlimentos = "SELECT * FROM alimentos ORDER BY categoria, nombre ASC";
 $resultAlimentos = $conexion->query($sqlAlimentos);
+
+$listaAlimentos = "";
+$categoriaActual = "";
+
+if($resultAlimentos->num_rows > 0){
+    while($alimento = $resultAlimentos->fetch_assoc()){
+        //Que se muestre si cambia la categoría
+        if($categoriaActual != $alimento['categoria']){
+            $categoriaActual = $alimento['categoria'];
+            $listaAlimentos .= "<h3>$categoriaActual"</h3>;
+        }
+
+        $id = $alimento['id_alimento'];
+        $nombre = $alimento ['nombre'];
+        $listaAlimentos .= "<li><input type='checkbox' name='alimentos' value='$id'>$nombre
+        </li>"
+    }
+}
 
 //Incluimos HTML
 

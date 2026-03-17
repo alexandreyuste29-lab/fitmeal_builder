@@ -19,11 +19,11 @@ $password_hash = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO usuarios (nombre, apellidos, email, password_hash)
 VALUES('$nombre', '$apellidos', '$email', '$password_hash')";
 
-if($con ->query($sql)){
-    echo "Usuario registrado correctamente";
-}
-else{
-    echo "Error: " . $con->error;
+if($conexion ->query($sql)=== TRUE){
+    header("Location: login.html");//Después del registro que vaya directamente al login
+    exit();
+}else{
+    echo "Error: " . $conexion->error;
 }
 }
 ?>
