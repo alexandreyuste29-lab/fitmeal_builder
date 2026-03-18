@@ -49,15 +49,21 @@ if($resultAlimentos->num_rows > 0){
     while($alimento = $resultAlimentos->fetch_assoc()){
         //Que se muestre si cambia la categoría
         if($categoriaActual != $alimento['categoria']){
-            $categoriaActual = $alimento['categoria'];
-            $listaAlimentos .= "<h3>$categoriaActual</h3>";
+            if($categoriaActual !=""){
+            $listaAlimentos .= "</ul>";
         }
 
+        $categoriaActual = $alimento['categoria'];
+        $listaAlimentos .= "<h3>$categoriaActual</h3><ul>";
+    }
+
         $id = $alimento['id_alimento'];
-        $nombre = $alimento ['nombre'];
+        $nombre = $alimento['nombre'];
+
         $listaAlimentos .= "<li><input type='checkbox' name='alimentos[]' value='$id'>$nombre
         </li>";
     }
+    $listaAlimentos .= "</ul>";
 }
 
 //Incluimos HTML
