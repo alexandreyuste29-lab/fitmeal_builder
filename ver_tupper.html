@@ -13,21 +13,21 @@
 
         <!--Lista de alimentos-->
 
-        <?php if (count($listaAlimentos)): ?>
+        <h2>Alimentos:</h2>
+
         <ul>
-            <?php foreach ($listaAlimentos as $alimento): ?>
-            <li><?php echo $alimento['nombre']; ?> - <?php echo $alimento['calorias']; ?>kcal</li>
-            <?php endforeach; ?>
+            <?php echo $listaAlimentos; ?>
         </ul>
 
-        <p><strong>Calorías totales del tupper: <?php echo $totalCalorias; ?></strong></p>
-
-        php else: ?>
-        <p>Este tupper no tiene alimentos todavía.</p>
-        <?php endif; ?>
-
+        <h2>Resumen nutricional:</h2>
+        
+        <p><strong>Calorías totales: <?php echo $totalCalorias; ?> kcal</strong></p>"
+        <p>Proteínas:  <?php echo $totalProteinas; ?> g</p>
+        <p>carbohidratos:  <?php echo $totalCarbohidratos; ?> g</P>
+        <p>Grasas:  <?php echo $totalGrasas; ?> g</p>
+        
         <br>
-
+        
         <a href="mis_tuppers.php">Volver a mis tuppers</a>
 
     </div>

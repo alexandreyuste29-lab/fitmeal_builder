@@ -27,15 +27,43 @@ $idTupper = (int)$_GET['id_tupper'];
 
 if(isset($_POST['añadir_alimentos'])){
     if(isset($_POST['alimentos']) && is_array($_POST['alimentos'])){
+
+        //Contar si se añadió algún alimento
+
+        $añadidos = 0; 
+
         foreach($_POST['alimentos'] as $idAlimento){
             $idAlimento = (int)$idAlimento;
-            $sqlInsert = "INSERT INTO tuppers_alimentos (id_tupper, id_alimento) 
-            VALUES ($idTupper, $idAlimento)";
-            $conexion->query($sqlInsert);
+
+            //Comprobamos si ya existe
+
+            $sqlComprobacion = "SELECT * FROM tuppers_alimentos
+            WHERE id_tupper = $idTupper AND id_alimento = $idAlimento";
+
+            $resultadoComprobacion = $conexion->query($sqlComprobacion);
+
+            if($resultadoComprobacion->num_rows == 0){
+                //Insertamos solo si no existe
+                $sqlInsert = "INSERT INTO tuppers_alimentos (id_tupper, id_alimento) 
+                VALUES ($idTupper, $idAlimento)";
+                $conexion->query($sqlInsert);
+
+                //Suma si se añade
+
+                $añadidos++;
+            }
         }
+
+        if($añadidos > 0){
         $mensaje = "Alimentos añadidos correctamente.";
-    }else{$mensaje = "No seleccionaste ningún alimento.";}
+       }else{
+        $mensaje = "Los alimentos ya estaban añadidos.";}
+       }
+       else{
+        $mensaje = "No seleccionaste ningún alimento.";}
 }
+
+
 
 //Obtenemos la lista de alimentos de la base de datos
 

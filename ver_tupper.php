@@ -26,7 +26,7 @@ $idTupper = (int)$_GET['id_tupper'];
 
 //Consulta para obtener los alimentos del tupper junto con sus calorías
 
-$sql = "SELECT alimentos.nombre, alimentos.calorias
+$sql = "SELECT alimentos.nombre, alimentos.calorias, alimentos.proteinas, alimentos.carbohidratos, alimentos.grasas
 FROM tuppers_alimentos JOIN alimentos 
 ON tuppers_alimentos.id_alimento =alimentos.id_alimento 
 WHERE tuppers_alimentos.id_tupper = $idTupper";
@@ -35,26 +35,27 @@ $resultado = $conexion->query($sql);
 
 //Inicializamos variables para el HTML y el total de calorías
 
-$listaAlimentos="";
 $totalCalorias = 0;
+$totalProteinas = 0;
+$totalCarbohidratos = 0;
+$totalgrasas = 0;
+
+$listaAlimentos="";
 
 
 //Si hay alimentos, construimos la lista HTML
 if($resultado->num_rows>0){
+    while($fila = $resultado->fetch_assoc()){
+    
+        //Sumas nutricionales
 
-$listaAlimentos .= "<ul>";
+    $totalCalorias += $fila['calorias'];
+    $totalProteinas += $fila['proteinas'];
+    $totalCarbohidratos += $fila['carbohidratos'];
+    $totalGrasas += $fila['grasas'];
 
-while($fila = $resultado->fetch_assoc()){
-    $nombre = $fila['nombre'];
-    $calorias = $fila['calorias'];
-    $totalCalorias += $calorias;
-    $listaAlimentos .= "<li>$nombre - $calorias kcal</li>";
-}
-
-$listaAlimentos .="</ul>";
-
-//Añadimos el total de calorías
-$listaAlimentos .= "<p><strong>Calorías totales del tupper: $totalCalorias kcal</strong></p>";
+    $nombre 0 $fila['nombre'];
+    $listaAlimentos .= "<li>$nombre</li>";
 
 }else{$listaAlimentos = "<p>Este tupper no tiene alimentos.</p>"}
 
