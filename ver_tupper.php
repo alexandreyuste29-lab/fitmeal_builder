@@ -15,6 +15,10 @@ $nombreUsuario = $_SESSION['nombre'];
 //Conexión a la base de datos
 include("includes/conexion.php");
 
+
+//Inicializamos el mensaje para evitar errores
+$mensaje="";
+
 //Comprobamos si llega el id del tupper
 
 if(!isset($_GET['id_tupper'])){
@@ -24,9 +28,23 @@ if(!isset($_GET['id_tupper'])){
 //Aseguramos que el id sea un número entero
 $idTupper = (int)$_GET['id_tupper'];
 
+//Eliminar alimento
+
+if(isset($_GET['eliminar'])){
+    $idAlimentoEliminar = (int)$_GET['eliminar'];
+    $sqlDelete = "DELETE FROM tuppers_alimentos
+    WHERE id_tupper = $idTupper AND  id_alimento = $idAlimentoEliminar";
+
+//Mensaje para que el usuario sepa que ha eliminado un alimento
+
+    if ($conexion->query($sqlDelete)){
+        $mensaje = "Alimento eliminado correctamente.";
+    }
+}
+
 //Consulta para obtener los alimentos del tupper junto con sus calorías
 
-$sql = "SELECT alimentos.nombre, alimentos.calorias, alimentos.proteinas, alimentos.carbohidratos, alimentos.grasas
+$sql = "SELECT alimentos.id_alimento, alimentos.nombre, alimentos.calorias, alimentos.proteinas, alimentos.carbohidratos, alimentos.grasas
 FROM tuppers_alimentos JOIN alimentos 
 ON tuppers_alimentos.id_alimento =alimentos.id_alimento 
 WHERE tuppers_alimentos.id_tupper = $idTupper";
@@ -38,14 +56,20 @@ $resultado = $conexion->query($sql);
 $totalCalorias = 0;
 $totalProteinas = 0;
 $totalCarbohidratos = 0;
-$totalgrasas = 0;
+$totalGrasas = 0;
 
 $listaAlimentos="";
 
 
 //Si hay alimentos, construimos la lista HTML
 if($resultado->num_rows>0){
+
+    $listaAlimentos .= "<ul>";
+
     while($fila = $resultado->fetch_assoc()){
+
+        $id = $fila['id_alimento'];
+        $nombre = $fila['nombre'];
     
         //Sumas nutricionales
 
@@ -54,10 +78,13 @@ if($resultado->num_rows>0){
     $totalCarbohidratos += $fila['carbohidratos'];
     $totalGrasas += $fila['grasas'];
 
-    $nombre 0 $fila['nombre'];
-    $listaAlimentos .= "<li>$nombre</li>";
+    $listaAlimentos .= '<li>'.$nombre.' <a href="ver_tupper.php?id_tupper='.$idTupper.'&eliminar='.$id.'"
+    onclick="return confirm(\'¿Seguro que quieres eliminar este alimento?\')">Eliminar</a>
+    </li>';
+    }
+    $listaAlimentos .= "</ul>";
 
-}else{$listaAlimentos = "<p>Este tupper no tiene alimentos.</p>"}
+}else{$listaAlimentos = "<p>Este tupper no tiene alimentos.</p>";}
 
 include("ver_tupper.html");
 
