@@ -11,7 +11,7 @@
 
         <h1>Hola <?php echo $nombreUsuario; ?>, este es tu tupper</h1>
 
-        <?php if(isset($mensaje)) && $mensaje != "")echo "<p>$mensaje</p>";?>
+        <?php if(isset($mensaje) && $mensaje != "") echo "<p>$mensaje</p>";?>
 
         <!--Lista de alimentos-->
 
@@ -19,13 +19,16 @@
         
             <?php echo $listaAlimentos; ?>
 
+            <hr>
+
         <h2>Resumen nutricional:</h2>
         
+        <div style="background-color:#e9f7ef; padding:10px; border-radius:5px;">
         <p><strong>Calorías totales: <?php echo $totalCalorias; ?> kcal</strong></p>
         <p>Proteínas:  <?php echo $totalProteinas; ?> g</p>
-        <p>carbohidratos:  <?php echo $totalCarbohidratos; ?> g</P>
+        <p>Carbohidratos:  <?php echo $totalCarbohidratos; ?> g</p>
         <p>Grasas:  <?php echo $totalGrasas; ?> g</p>
-        
+        </div>
         <br>
         
         <a href="mis_tuppers.php">Volver a mis tuppers</a>

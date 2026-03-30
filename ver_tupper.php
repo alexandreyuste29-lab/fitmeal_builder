@@ -78,7 +78,7 @@ if($resultado->num_rows>0){
     $totalCarbohidratos += $fila['carbohidratos'];
     $totalGrasas += $fila['grasas'];
 
-    $listaAlimentos .= '<li>'.$nombre.' <a href="ver_tupper.php?id_tupper='.$idTupper.'&eliminar='.$id.'"
+    $listaAlimentos .= '<li>'.$nombre.' <a style="color:red;" href="ver_tupper.php?id_tupper='.$idTupper.'&eliminar='.$id.'"
     onclick="return confirm(\'¿Seguro que quieres eliminar este alimento?\')">Eliminar</a>
     </li>';
     }
