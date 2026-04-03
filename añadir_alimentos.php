@@ -13,6 +13,14 @@ $nombreUsuario = $_SESSION['nombre'];
 
 include("includes/conexion.php");
 
+//Mensaje tupper creado
+
+$mensaje = "";
+
+if(isset($_GET['mensaje'])&& $_GET['mensaje'] == "creado"){
+    $mensaje = "Tupper creado correctamente";
+}
+
 //Comprobamos si se recibe el id del tupper
 
 if(!isset($_GET['id_tupper'])){
@@ -87,8 +95,13 @@ if($resultAlimentos->num_rows > 0){
 
         $id = $alimento['id_alimento'];
         $nombre = $alimento['nombre'];
+        
+        //Si la imagen es null usa default
 
-        $listaAlimentos .= "<li><input type='checkbox' name='alimentos[]' value='$id'>$nombre
+        $imagen = $alimento['imagen'] ? $alimento['imagen'] : 'default.jpg';
+        $listaAlimentos .= "<li style='display:flex; align-items:center;gap:10px;'>
+        <img src='imagenes/$imagen' width='50'>
+        <input type='checkbox' name='alimentos[]' value='$id'>$nombre
         </li>";
     }
     $listaAlimentos .= "</ul>";

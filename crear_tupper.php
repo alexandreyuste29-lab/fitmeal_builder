@@ -32,7 +32,17 @@ $sql = "INSERT INTO tuppers (id_usuario, nombre, fecha_creacion)
         VALUES ('$idUsuario', '$nombreTupper', NOW())";
 
 if($conexion->query($sql)){
-    $mensaje = "Tupper creado correctamente";
+
+//Obtenemos ID del tupper que acabamos de crear
+
+    $idTupper = $conexion->insert_id;
+
+    //Redirección a "Añadir alimentos"
+
+    header("Location: añadir_alimentos.php?id_tupper=$idTupper&mensaje=creado");
+
+    exit();
+
 }else{$mensaje = "Error al crear el tupper: " . $conexion->error;}
 }
 
