@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Ver tupper - FitMeal Builder</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+<div class="navbar">
 
-    <div class="contenedor">
+    <div class="logo">FitMeal Builder</div>
+
+    <div class="menu">
+
+        <div class="menu-item">Proteínas</div>
+
+        <div class="menu-item">Hidratos</div>
+
+        <div class="menu-item">Grasas</div>
+
+        <div class="menu-item">Verduras</div>
+
+        <div class="menu-item">
+            <a href="mis_tuppers.php" style="color:white; text-decoration:none;">Mis tuppers</a>
+        </div>
+
+        <div class="menu-item">
+            <a href="crear_tupper.php" style="color:white; text-decoration:none;">Crear tupper</a>
+        </div>
+
+    </div>
+
+</div>
+    <div class="app-contenedor">
 
         <h1>Hola <?php echo $nombreUsuario; ?>, este es tu tupper</h1>
 

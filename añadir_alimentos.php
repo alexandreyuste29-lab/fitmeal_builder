@@ -86,11 +86,15 @@ if($resultAlimentos->num_rows > 0){
         //Que se muestre si cambia la categoría
         if($categoriaActual != $alimento['categoria']){
             if($categoriaActual !=""){
-            $listaAlimentos .= "</ul>";
+            $listaAlimentos .= "</ul></div>";
         }
 
         $categoriaActual = $alimento['categoria'];
-        $listaAlimentos .= "<h3>$categoriaActual</h3><ul>";
+
+        //Creamos un button para que las categorias tengan desplegable tipo acordeon
+
+        $listaAlimentos .= "<button type='button' class='acordeon-btn'>$categoriaActual</button>";
+        $listaAlimentos .= "<div class='panel'><ul>";
     }
 
         $id = $alimento['id_alimento'];
@@ -104,7 +108,7 @@ if($resultAlimentos->num_rows > 0){
         <input type='checkbox' name='alimentos[]' value='$id'>$nombre
         </li>";
     }
-    $listaAlimentos .= "</ul>";
+    $listaAlimentos .= "</ul></div>";
 }
 
 //Incluimos HTML
