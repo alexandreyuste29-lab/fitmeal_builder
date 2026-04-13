@@ -75,25 +75,32 @@ if(isset($_POST['añadir_alimentos'])){
 
 //Obtenemos la lista de alimentos de la base de datos
 
-$sqlAlimentos = "SELECT * FROM alimentos ORDER BY categoria, nombre ASC";
-$resultAlimentos = $conexion->query($sqlAlimentos);
+$sqlAlimentos = "SELECT DISTINCT nombre, categoria, imagen, id_alimento 
+FROM alimentos 
+GROUP BY nombre, categoria, imagen
+ORDER BY categoria, nombre ASC";
 
+$resultAlimentos = $conexion->query($sqlAlimentos);
 $listaAlimentos = "";
 $categoriaActual = "";
 
 if($resultAlimentos->num_rows > 0){
+
+    $listaAlimentos = "<div class='categorias'>";
+
     while($alimento = $resultAlimentos->fetch_assoc()){
         //Que se muestre si cambia la categoría
         if($categoriaActual != $alimento['categoria']){
             if($categoriaActual !=""){
-            $listaAlimentos .= "</ul></div>";
+            $listaAlimentos .= "</ul></div></div>";
         }
 
         $categoriaActual = $alimento['categoria'];
 
-        //Creamos un button para que las categorias tengan desplegable tipo acordeon
-
-        $listaAlimentos .= "<button type='button' class='acordeon-btn'>$categoriaActual</button>";
+        //Abrimos categoria y añadimos acordeon
+         
+        $listaAlimentos .= "<div class='categoria-box'>";
+        $listaAlimentos .= "<button class='acordeon-btn'>$categoriaActual</button>";
         $listaAlimentos .= "<div class='panel'><ul>";
     }
 
@@ -103,15 +110,17 @@ if($resultAlimentos->num_rows > 0){
         //Si la imagen es null usa default
 
         $imagen = $alimento['imagen'] ? $alimento['imagen'] : 'default.jpg';
-        $listaAlimentos .= "<li style='display:flex; align-items:center;gap:10px;'>
-        <img src='imagenes/$imagen' width='50'>
+        $listaAlimentos .= "
+        <li>
+        <img src='assets/$imagen' width='50'>
         <input type='checkbox' name='alimentos[]' value='$id'>$nombre
         </li>";
     }
-    $listaAlimentos .= "</ul></div>";
+    $listaAlimentos .= "</ul></div></div>";
+    $listaAlimentos .= "</div>";
 }
 
 //Incluimos HTML
 
-include("añadir_alimentos.html");
+include("add_alimentos.html");
 ?>

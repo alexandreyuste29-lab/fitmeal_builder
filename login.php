@@ -25,7 +25,7 @@ if(isset($_POST["login"])){
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         $_SESSION['nombre']= $usuario['nombre'];
 
-        header("Location: panel.php");
+        header("Location: index.php");
         exit();
 
     }else{echo "Contraseña incorrecta";}

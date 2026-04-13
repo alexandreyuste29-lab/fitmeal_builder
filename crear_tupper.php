@@ -39,7 +39,7 @@ if($conexion->query($sql)){
 
     //Redirección a "Añadir alimentos"
 
-    header("Location: añadir_alimentos.php?id_tupper=$idTupper&mensaje=creado");
+    header("Location: add_alimentos.php?id_tupper=$idTupper&mensaje=creado");
 
     exit();
 

@@ -15,5 +15,5 @@ $nombreUsuario = $_SESSION['nombre'];
 
 //Llamada al Html
 
-include("panel.html");
+include("index.html");
 ?>

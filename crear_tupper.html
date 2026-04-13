@@ -4,36 +4,30 @@
     <meta charset="UTF-8">
     <title>Crear Tupper - FitMeal Builder</title>
 
-<!--Para que panel utilice el mismo estilo que login-->
+<!--CSS de la web-->
 
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
 
 </head>
 <body>
-    <div class="navbar">
-
-    <div class="logo">FitMeal Builder</div>
-
-    <div class="menu">
-
-        <div class="menu-item">Proteínas</div>
-
-        <div class="menu-item">Hidratos</div>
-
-        <div class="menu-item">Grasas</div>
-
-        <div class="menu-item">Verduras</div>
-
-        <div class="menu-item">
-            <a href="mis_tuppers.php" style="color:white; text-decoration:none;">Mis tuppers</a>
+    <div class="header">
+        <div class="logo">
+            <a href="index.php" >FitMeal Builder</a>
         </div>
 
-        <div class="menu-item">
-            <a href="crear_tupper.php" style="color:white; text-decoration:none;">Crear tupper</a>
-        </div>
+        <div class="menu">
+            
+            <div class="menu-item">
+                <a href="mis_tuppers.php">Mis tuppers</a>
+            </div>
 
+            <div class="menu-item">
+                <a href="crear_tupper.php">Crear tupper</a>
+            </div>
+        </div>
     </div>
-
 </div>
 
     <div class="app-contenedor">
@@ -56,7 +50,7 @@
 
 <!--Volver al panel-->
 
-<a href="panel.php">Volver al panel</a>
+<a class="link-primary" href="index.php">Volver al panel</a>
 
 
 </div>

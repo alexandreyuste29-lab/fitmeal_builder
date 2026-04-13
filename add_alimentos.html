@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir alimentos - FitMeal Builder</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">
+        <a href="index.php" >FitMeal Builder</a>
+    </div>
+
+    <div class="menu">
+        
+        <div class="menu-item">
+            <a href="mis_tuppers.php">Mis tuppers</a>
+        </div>
+
+        <div class="menu-item">
+            <a href="crear_tupper.php">Crear tupper</a>
+        </div>
+    </div>
+</div>
+
+<div class="app-contenedor">
+
+    <h1>Hola <?php echo $nombreUsuario; ?>, puedes añadir alimentos al tupper</h1>
+
+    <?php if(isset($mensaje)) echo "<p class='success'>$mensaje</p>"; ?>
+
+    <form action="add_alimentos.php?id_tupper=<?php echo $idTupper; ?>" method="POST">
+
+        <label>Selecciona los alimentos:</label>
+
+        <?php echo $listaAlimentos; ?>
+
+        <button class="button-primary" type="submit" name="añadir_alimentos">Añadir alimentos</button>
+
+    </form>
+
+    <br>
+
+    <a class="link-primary" href="mis_tuppers.php">Volver a mis tuppers</a>
+
+</div>
+
+<!-- Script acordeón-->
+<script>
+var acc = document.getElementsByClassName("acordeon-btn");
+
+for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        this.classList.toggle("activo");
+
+        var panel = this.nextElementSibling;
+
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

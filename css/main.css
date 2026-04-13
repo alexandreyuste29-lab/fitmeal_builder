@@ -1,0 +1,35 @@
+.app-contenedor {
+    padding: 10px 15px;
+}
+
+.success {
+    color: #146C2E;
+    font-weight: bold;
+}
+
+.button-primary {
+    background-color: #bb4d33;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.button-primary:hover {
+    transform: scale(1.1);
+    background-color: #a9442c;
+}
+
+.link-primary {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.link-primary:hover {
+    color: #bb4d33
+}

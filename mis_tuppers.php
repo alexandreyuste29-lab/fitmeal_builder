@@ -31,7 +31,7 @@ if($resultado-> num_rows > 0){
         $id = $tupper['id_tupper'];
         $listaTuppers .= "<li>$nombre ($fecha) |
          <a href='ver_tupper.php?id_tupper=$id'>Ver</a> |
-         <a href='añadir_alimentos.php?id_tupper=$id'>Añadir alimentos</a> |
+         <a href='add_alimentos.php?id_tupper=$id'>Añadir alimentos</a> |
          <a href='eliminar_tupper.php?id_tupper=$id'>Eliminar</a>
         </li>";
     }

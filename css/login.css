@@ -1,7 +1,25 @@
-body{
-    background: linear-gradient(135deg, #dfddd1, #cfcbb8);
-    font-family: Arial, sans-serif;
-    margin: 0;
+.login-contenedor{
+    background-color: #fff;
+    padding: 30px;
+    border: 2px solid #717047;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,1);
+    width: 300px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-contenedor h2{
+    color: #bb4d33;
+}
+
+.login-contenedor input,
+.login-contenedor button{
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .login-contenedor{
