@@ -1,57 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Ver tupper - FitMeal Builder</title>
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
-    
+
 </head>
+
 <body>
 
-<div class="header">
-    <div class="logo">
-        <a href="index.php" >FitMeal Builder</a>
-    </div>
-
-    <div class="menu">
-        
-        <div class="menu-item">
-            <a href="mis_tuppers.php">Mis tuppers</a>
+    <div class="header">
+        <div class="logo">
+            <a href="index.php">FitMeal Builder</a>
         </div>
 
-        <div class="menu-item">
-            <a href="crear_tupper.php">Crear tupper</a>
+        <div class="menu">
+
+            <div class="menu-item">
+                <a href="mis_tuppers.php">Mis tuppers</a>
+            </div>
+
+            <div class="menu-item">
+                <a href="crear_tupper.php">Crear tupper</a>
+            </div>
         </div>
     </div>
-</div>
 
     <div class="app-contenedor">
 
-        <h1>Hola <?php echo $nombreUsuario; ?>, este es tu tupper</h1>
+        <h1>Hola
+            <?php echo $nombreUsuario; ?>, este es tu tupper
+        </h1>
 
         <?php if(isset($mensaje) && $mensaje != "") echo "<p>$mensaje</p>";?>
 
         <!--Lista de alimentos-->
 
         <h2>Alimentos:</h2>
-        
-            <?php echo $listaAlimentos; ?>
 
-            <hr>
+        <?php echo $listaAlimentos; ?>
+
+        <hr>
 
         <h2>Resumen nutricional:</h2>
-        
+
         <div style="background-color:#e9f7ef; padding:10px; border-radius:5px;">
-        <p><strong>Calorías totales: <?php echo $totalCalorias; ?> kcal</strong></p>
-        <p>Proteínas:  <?php echo $totalProteinas; ?> g</p>
-        <p>Carbohidratos:  <?php echo $totalCarbohidratos; ?> g</p>
-        <p>Grasas:  <?php echo $totalGrasas; ?> g</p>
+            <p><strong>Calorías totales:
+                    <?php echo $totalCalorias; ?> kcal
+                </strong></p>
+            <p>Proteínas:
+                <?php echo $totalProteinas; ?> g
+            </p>
+            <p>Carbohidratos:
+                <?php echo $totalCarbohidratos; ?> g
+            </p>
+            <p>Grasas:
+                <?php echo $totalGrasas; ?> g
+            </p>
         </div>
         <br>
-        
-        <a href="mis_tuppers.php">Volver a mis tuppers</a>
+
+        <a class="link-primary" href="mis_tuppers.php">
+            << Volver a mis tuppers</a>
 
     </div>
 </body>
+
 </html>

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Login Fitmeal Builder</title>
+    <title>Mis Tupper - FitMeal Builder</title>
 
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
 </head>
+
 <body>
     <div class="header">
         <div class="logo">
-            <a href="index.php" >FitMeal Builder</a>
+            <a href="index.php">FitMeal Builder</a>
         </div>
-
         <div class="menu">
-            
+
             <div class="menu-item">
                 <a href="mis_tuppers.php">Mis tuppers</a>
             </div>
@@ -25,20 +26,24 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 
     <div class="app-contenedor">
 
 
         <!--Saludo al usuario por su nombre y muestra de sus tuppers-->
-        <h1>Hola <?php echo $nombreUsuario; ?>, estos son tus tuppers</h1>
+        <h1>Hola
+            <?php echo $nombreUsuario; ?>, estos son tus tuppers
+        </h1>
 
         <!--Lista de tuppers-->
 
         <?php echo $listaTuppers; ?>
 
         <br>
-        <a href="index.php">Volver al panel</a>
+        <a class="link-primary" href="index.php">
+            << Volver al panel</a>
     </div>
 </body>
+
 </html>

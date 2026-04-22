@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Crear Tupper - FitMeal Builder</title>
 
-<!--CSS de la web-->
-
+    <!--CSS de la web-->
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
 
 </head>
+
 <body>
     <div class="header">
         <div class="logo">
-            <a href="index.php" >FitMeal Builder</a>
+            <a href="index.php">FitMeal Builder</a>
         </div>
-
         <div class="menu">
-            
+
             <div class="menu-item">
                 <a href="mis_tuppers.php">Mis tuppers</a>
             </div>
@@ -28,31 +28,35 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 
     <div class="app-contenedor">
 
-<!--Bienvenida al usuario-->
+        <!--Bienvenida al usuario-->
+        <h1>Bienvenido
+            <?php echo $nombreUsuario; ?>, ya puedes crear tu tupper
+        </h1>
 
-<h1>Bienvenido <?php echo $nombreUsuario; ?>, ya puedes crear tu tupper</h1>
+        <!--Mensaje de éxito o error al crear el tupper-->
+        <p>
+            <?php echo $mensaje; ?>
+        </p>
 
-<!--Mensaje de éxito o error al crear el tupper-->
- 
-<p><?php echo $mensaje; ?></p>
+        <!--Formulario para crear un tupper-->
+        <div class="main-grid">
+            <form action="crear_tupper.php" method="POST">
+                <p>Nombre del tupper</p>
+                <input type="text" name="nombre_tupper" required>
+                <button class="button-primary" type="submit" name="crear_tupper">Crear tupper</button>
+            </form>
+        </div>
 
-<!--Formulario para crear un tupper-->
-
-<form action="crear_tupper.php" method="POST">
-    <label>Nombre del tupper</label>
-    <input type="text" name="nombre_tupper" required>
-    <button type="submit" name="crear_tupper">Crear tupper</button>
-</form>
-
-<!--Volver al panel-->
-
-<a class="link-primary" href="index.php">Volver al panel</a>
+        <!--Volver al panel-->
+        <a class="link-primary" href="index.php">
+            << Volver al panel</a>
 
 
-</div>
+    </div>
 </body>
+
 </html>

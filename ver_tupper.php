@@ -44,7 +44,7 @@ if(isset($_GET['eliminar'])){
 
 //Consulta para obtener los alimentos del tupper junto con sus calorías
 
-$sql = "SELECT alimentos.id_alimento, alimentos.nombre, alimentos.calorias, alimentos.proteinas, alimentos.carbohidratos, alimentos.grasas
+$sql = "SELECT alimentos.id_alimento, alimentos.nombre, alimentos.calorias, alimentos.proteinas, alimentos.carbohidratos, alimentos.grasas, alimentos.imagen
 FROM tuppers_alimentos JOIN alimentos 
 ON tuppers_alimentos.id_alimento =alimentos.id_alimento 
 WHERE tuppers_alimentos.id_tupper = $idTupper";
@@ -64,12 +64,13 @@ $listaAlimentos="";
 //Si hay alimentos, construimos la lista HTML
 if($resultado->num_rows>0){
 
-    $listaAlimentos .= "<ul>";
+    $listaAlimentos .= "<ul class='table-primary '>";
 
     while($fila = $resultado->fetch_assoc()){
 
         $id = $fila['id_alimento'];
         $nombre = $fila['nombre'];
+        $imagen = $fila['imagen'];
     
         //Sumas nutricionales
 
@@ -78,7 +79,7 @@ if($resultado->num_rows>0){
     $totalCarbohidratos += $fila['carbohidratos'];
     $totalGrasas += $fila['grasas'];
 
-    $listaAlimentos .= '<li>'.$nombre.' <a style="color:red;" href="ver_tupper.php?id_tupper='.$idTupper.'&eliminar='.$id.'"
+    $listaAlimentos .= '<li><p>'.$nombre.'</p><img src="assets/'.$imagen.'" width="auto" height="50px"><a class="link-primary danger" href="ver_tupper.php?id_tupper='.$idTupper.'&eliminar='.$id.'"
     onclick="return confirm(\'¿Seguro que quieres eliminar este alimento?\')">Eliminar</a>
     </li>';
     }

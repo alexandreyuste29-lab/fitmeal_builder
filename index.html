@@ -1,33 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+
 <head>
-
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Panel de Usuario - FitMeal Builder</title>
-
-<!--Para que panel utilice el mismo estilo que login-->
-
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/header.css">
-
+    <!--Para que panel utilice el mismo estilo que login-->
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
 </head>
+
 <body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.php">FitMeal Builder</a>
+        </div>
 
-    <div class="contenedor">
+        <div class="menu">
 
-<!--Bienvenida personalizada-->
+            <div class="menu-item">
+                <a href="mis_tuppers.php">Mis tuppers</a>
+            </div>
 
-<h1>Bienvenido <?php echo $nombreUsuario; ?></h1>
-<p>¿Qué te apetece hoy?</p>
+            <div class="menu-item">
+                <a href="crear_tupper.php">Crear tupper</a>
+            </div>
+        </div>
+    </div>
 
-<!--Crear tuppers y cerrar sesión-->
-
-<ul>
-    <li><a href="crear_tupper.php">Crear nuevo tupper</a></li>
-    <li><a href="logout.php">Cerrar sesión</a></li>
-</ul>
-</div>
+    <div class="app-contenedor">
+        <!--Bienvenida personalizada-->
+        <h1>Bienvenido
+            <?php echo $nombreUsuario; ?>
+        </h1>
+        <div class="main-grid">
+            <p class="title-primary">¿Qué te apetece hoy?</p>
+            <!--Crear tuppers y cerrar sesión-->
+            <ul class="grid-buttons">
+                <li><a class="button-primary" href="crear_tupper.php">Crear nuevo tupper</a></li>
+                <li><a class="button-primary" href="logout.php">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
+
 </html>

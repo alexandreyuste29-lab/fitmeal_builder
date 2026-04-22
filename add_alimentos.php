@@ -113,7 +113,8 @@ if($resultAlimentos->num_rows > 0){
         $listaAlimentos .= "
         <li>
         <img src='assets/$imagen' width='50'>
-        <input type='checkbox' name='alimentos[]' value='$id'>$nombre
+        <input type='checkbox' name='alimentos[]' value='$id'>
+        <span class='nombre-alimento'>$nombre</span>
         </li>";
     }
     $listaAlimentos .= "</ul></div></div>";

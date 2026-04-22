@@ -24,15 +24,15 @@ $resultado = $conexion->query($sql);
 $listaTuppers = "";
 
 if($resultado-> num_rows > 0){
-    $listaTuppers .= "<ul>";
+    $listaTuppers .= "<ul class='table-primary'>";
     while($tupper = $resultado->fetch_assoc()){
         $nombre = $tupper['nombre'] ?: "Tupper sin nombre";
         $fecha = $tupper['fecha_creacion'];
         $id = $tupper['id_tupper'];
         $listaTuppers .= "<li>$nombre ($fecha) |
-         <a href='ver_tupper.php?id_tupper=$id'>Ver</a> |
-         <a href='add_alimentos.php?id_tupper=$id'>Añadir alimentos</a> |
-         <a href='eliminar_tupper.php?id_tupper=$id'>Eliminar</a>
+         <a class='link-primary' href='ver_tupper.php?id_tupper=$id'>Ver</a> |
+         <a class='link-primary' href='add_alimentos.php?id_tupper=$id'>Añadir alimentos</a> |
+         <a class='link-primary danger' href='eliminar_tupper.php?id_tupper=$id'>Eliminar</a>
         </li>";
     }
         $listaTuppers .= "</ul>";
